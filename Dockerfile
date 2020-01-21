@@ -16,6 +16,8 @@ CMD R -e "source('/home/data_prep/nowcasting_538.R')"
 CMD R -e "source('/home/data_prep/data_prep_2020.R')"
 
 
+
+
 # Rstan and friends
 
 # RUN apt-get update \
