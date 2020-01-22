@@ -5,6 +5,8 @@ MAINTAINER Zoe Meers zoe.meers@gmail.com
 
 RUN install2.r lubridate
 
+# Load 2020 polls 
+
 RUN mkdir /home/data_prep
 
 COPY nowcasting_538.R /home/data_prep/nowcasting_538.R
@@ -15,6 +17,14 @@ CMD R -e "source('/home/data_prep/nowcasting_538.R')"
 
 CMD R -e "source('/home/data_prep/data_prep_2020.R')"
 
+
+# Load Simon's pre-calculated data
+
+CMD R -e "load('forModel_iowa.rda')"
+
+CMD R -e "load('xi_bar_all.RData')"
+
+CMD R -e "load('national_poll_average.RData')"
 
 
 

@@ -6,9 +6,10 @@
 
 library(tidyverse)
 library(lubridate)
+library(here)
 
 
-fec_2020 <- read_csv(here::here("data/harry/fundraisingdemocrats2020.csv")) %>% 
+fec_2020 <- read_csv("~/dropbox (sydney uni)/primaries/data/harry/fundraisingdemocrats2020.csv") %>% 
   mutate(as_of_date = gsub("(/19$)|(/2019$)", "\\/2019", as_of_date),
                            as_of_date = gsub("(/20$)|(/2020$)", "\\/2020", as_of_date)) %>% 
   mutate(as_of_date = lubridate::mdy(as_of_date)) %>% 
@@ -42,7 +43,7 @@ home_states_2020 <- tibble::tribble(
                  )
 
 
-load(here::here("data/538/iowa_national_polls_538.rdata"))
+load("dropboxsydneyuni/primaries/data/538/iowa_national_polls_538.rdata")
 
 national_polls_2020 <- national_polls 
 
@@ -106,7 +107,7 @@ save(iowa_polls_2020, national_polls_2020,
      drop_out_dates_2020,
      iowa_polls_2020_expand, national_polls_2020_expand, 
      home_states_2020, endorsements_2020, fec_2020,
-     file = here::here("data/data_for_2020_preds.rdata"))
+     file = "~/dropbox (sydney uni)/primaries/data/data_for_2020_preds.rdata")
 
 
 
